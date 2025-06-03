@@ -4,8 +4,14 @@ class Players:
         self.country = country
 
     
-    def __eq__(self, value:object):
-        pass
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Players):
+            return self.name == other.name and self.country == other.country
+        return False 
+
+    def __hash__(self) -> int:
+        return hash(self.name, self.country)
+
 
 class Olympics:
     def __init__(self):
@@ -47,7 +53,8 @@ class Olympics:
             else:
                 self.participants[event].append(participant)
                 print(f'El participante {name} de {country} se registro en el evento deportivo {event}')
-
+        else:
+            print("Seleccion de evento invalido. El participante no esta registrado")
 
 
 
@@ -70,7 +77,7 @@ while True:
         case "1":
             olympics.event_register()
         case "2":
-            pass
+            olympics.players_register()
         case "3":
             pass
         case "4":
