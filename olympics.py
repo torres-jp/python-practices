@@ -1,3 +1,5 @@
+import random
+
 class Players:
     def __init__(self, name, country):
         self.name = name
@@ -55,6 +57,21 @@ class Olympics:
                 print(f'El participante {name} de {country} se registro en el evento deportivo {event}')
         else:
             print("Seleccion de evento invalido. El participante no esta registrado")
+
+    def simulate_events(self):
+
+        if not self.events():
+            print('No hay eventos registrados , por favor registra un evento primero')
+            return
+        
+        for event in self.events:
+            if len(self.participants[event]) < 3:
+                print(f'No hay participante suficientes para el {event}')
+                continue
+
+            event_participants = random.sample(self.participant[event], 3)    
+
+
 
 
 
