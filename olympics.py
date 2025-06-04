@@ -52,12 +52,16 @@ class Olympics:
         if event_choice >= 0 and event_choice < len(self.events):
             event = self.events[event_choice]
 
-            if participant in self.participants[event]:
+            if event in self.participants and participant in self.participants[event]:
                 print(
                     f"El participante {name} de {country} se registro en el evento deportivo: {event}"
                 )
 
             else:
+
+                if not self.participants[event]:
+                    self.participants[event] = []
+
                 self.participants[event].append(participant)
                 print(
                     f"El participante {name} de {country} se registro en el evento deportivo: {event}"
