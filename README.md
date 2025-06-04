@@ -1,4 +1,4 @@
-// 00:28:51
+// 00:44:51
 # 🚀 20 Proyectos en Python
 
 Este repositorio contiene una colección de 20 proyectos desarrollados con Python, organizados por nivel de dificultad. Cada uno de ellos está diseñado para mejorar habilidades clave de programación, como estructuras de datos, lógica, interacción con APIs, manejo de archivos, automatización y más.
