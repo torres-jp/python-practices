@@ -23,7 +23,7 @@ class Olympics:
         self.country_results = {}
 
     def event_register(self):
-        event = input("Introduce el nombre del evento deportivo").strip()
+        event = input("Introduce el nombre del evento deportivo: ").strip()
 
         if event in self.events:
             print(f"El evento {event} ya esta registrado")
@@ -33,11 +33,11 @@ class Olympics:
 
     def players_register(self):
         if not self.events:
-            print("No hay eventos registrados. Por favor elige uno primero.")
+            print("No hay eventos registrados. Por favor elige uno primero: ")
             return
 
         name = input("Introduce el nombre de este participante: ").strip()
-        country = input("Introduce el pais del participante").strip()
+        country = input("Introduce el pais del participante: ").strip()
         participant = Players(name, country)
 
         print("Eventos disponibles: ")
@@ -45,7 +45,7 @@ class Olympics:
             print(f"{index + 1}. {event}")
 
         event_choice = (
-            int(input("Selecciona el numero del evento para asignar al participante"))
+            int(input("Selecciona el numero del evento para asignar al participante: "))
             - 1
         )
 
@@ -67,7 +67,7 @@ class Olympics:
 
     def simulate_events(self):
         if not self.events():
-            print("No hay eventos registrados , por favor registra un evento primero")
+            print("No hay eventos registrados , por favor registra un evento primero: ")
             return
 
         for event in self.events:
