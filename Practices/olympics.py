@@ -59,7 +59,7 @@ class Olympics:
 
             else:
 
-                if not self.participants[event]:
+                if event not in  self.participants:
                     self.participants[event] = []
 
                 self.participants[event].append(participant)
@@ -79,7 +79,7 @@ class Olympics:
                 print(f"No hay participante suficientes para el {event}: ")
                 continue
 
-            event_participants = random.sample(self.participant[event], 3)
+            event_participants = random.sample(self.participants[event], 3)
             random.shuffle(event_participants)
 
             gold, silver, bronze = event_participants
@@ -144,7 +144,7 @@ while True:
         case "3":
             olympics.simulate_events()
         case "4":
-            olympics.show_repors()
+            olympics.show_reports()
         case "5":
             print("Saliendo del simulador ...")
             break
