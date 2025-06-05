@@ -52,27 +52,31 @@ class Olympics:
         if event_choice >= 0 and event_choice < len(self.events):
             event = self.events[event_choice]
 
-            if participant in self.participants[event]:
+            if event in self.participants and participant in self.participants[event]:
                 print(
-                    f"El participante {name} de {country} se registro en el evento deportivo {event}"
+                    f"El participante {name} de {country} se registro en el evento deportivo: {event}"
                 )
 
             else:
+
+                if not self.participants[event]:
+                    self.participants[event] = []
+
                 self.participants[event].append(participant)
                 print(
-                    f"El participante {name} de {country} se registro en el evento deportivo {event}"
+                    f"El participante {name} de {country} se registro en el evento deportivo: {event}"
                 )
         else:
-            print("Seleccion de evento invalido. El participante no esta registrado")
+            print("Seleccion de evento invalido. El participante no esta registrado: ")
 
     def simulate_events(self):
-        if not self.events():
+        if not self.events:
             print("No hay eventos registrados , por favor registra un evento primero: ")
             return
 
         for event in self.events:
             if len(self.participants[event]) < 3:
-                print(f"No hay participante suficientes para el {event}")
+                print(f"No hay participante suficientes para el {event}: ")
                 continue
 
             event_participants = random.sample(self.participant[event], 3)
@@ -96,7 +100,10 @@ class Olympics:
 
         self.country_results[country][medal] += 1
 
-    def show_report(self):
+    def show_reports(self):
+
+        print('Informe juegos olimpicos: ')
+
         if  self.results:
             for event, winners in self.results.items():
                 print(f"Evento : {event}")
@@ -137,7 +144,7 @@ while True:
         case "3":
             olympics.simulate_events()
         case "4":
-            pass
+            olympics.show_repors()
         case "5":
             print("Saliendo del simulador ...")
             break
